@@ -6,13 +6,17 @@ export type ParsedRawCalculation = {
   decimalPart2: string | undefined
 }
 
-export const operators = ['+', '-', '*', '/'] as const
-export type Operators = typeof operators[number]
+export const operators = ['+', '-', '*', '/', '%'] as const;
+export type Operators = typeof operators[number];
+// Füge den Operator % zum Operators-Typ hinzu
+
+
 
 export type Calculation = {
   number1: number,
   number2: number,
   operator: Operators,
+   
   decimalPart1: number | undefined,
   decimalPart2: number | undefined
 }

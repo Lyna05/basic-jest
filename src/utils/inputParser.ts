@@ -25,9 +25,9 @@ export function parseRawInput(input: string): ParsedRawCalculation {
 
 
 export function transformRawCalculationToCalculation(rawCalculation: ParsedRawCalculation): Calculation {
-
-  if (!operators.includes(rawCalculation.operator as Operators)) {
-    throw new Error('Please provide a valid operator')
+  // Überprüfe, ob der Operator gültig ist
+  if (rawCalculation.operator !== 'Modulo' && !operators.includes(rawCalculation.operator as Operators)) {
+    throw new Error('Please provide a valid operator');
   }
 
   const calculation: Calculation = {
@@ -36,8 +36,7 @@ export function transformRawCalculationToCalculation(rawCalculation: ParsedRawCa
     operator: rawCalculation.operator as Operators,
     decimalPart1: rawCalculation.decimalPart1 ? parseFloat(rawCalculation.decimalPart1) : undefined,
     decimalPart2: rawCalculation.decimalPart2 ? parseFloat(rawCalculation.decimalPart2) : undefined
-  }
+  };
 
-  return calculation
-
+  return calculation;
 }

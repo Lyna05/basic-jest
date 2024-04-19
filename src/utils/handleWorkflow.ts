@@ -4,6 +4,7 @@ import { multiply } from "../calculations/multiply"
 import { subtract } from "../calculations/subtract"
 import { Calculation } from "../types/calculation"
 import { parseRawInput, transformRawCalculationToCalculation } from "./inputParser"
+import { modulo } from "../calculations/modulo";
 
 export function chooseCalculationAndExecute(calculation: Calculation): number {
   switch (calculation.operator) {
@@ -15,6 +16,8 @@ export function chooseCalculationAndExecute(calculation: Calculation): number {
       return multiply(calculation)
     case '/':
       return divide(calculation)
+    case '%':
+      return modulo(calculation);
     default:
       throw new Error('Invalid operator')
   }
